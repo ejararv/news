@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import APIService from "../API/APIService";
+import { useFetch } from "../hooks/useFetch";
 import LikeButton from "../UI/LikeButton/LikeButton";
 import NewsCard from "../UI/NewsCard/NewsCard";
 
@@ -8,6 +10,14 @@ const News = () => {
   const [news, setNews] = useState([]);
   const history = useHistory();
 
+  const [fetchNews, isLoading] = useFetch(async (limit, page) => {
+    const response = await APIService.getAllNews();
+    setNews(response.data);
+  });
+
+  useEffect(() => {
+    fetchNews();
+  });
   async function fetchData() {
     await fetch(BASE_URL)
       .then((response) => response.json())

@@ -1,6 +1,6 @@
 .container_albums {
-  display: flex;
-  justify-content: center;
+  display: inline-block;
+  align-items: center;
   margin: 0, 0, auto;
   max-width: 1920px;
   width: 80em;

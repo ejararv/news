@@ -3,8 +3,13 @@ const BASE_NEWS_URL = "https://jsonplaceholder.typicode.com/posts";
 const BASE_PHOTOS_URL = "https://jsonplaceholder.typicode.com/photos";
 
 export default class APIService {
-  static async getAllPhotos() {
-    const response = await axios.get(BASE_PHOTOS_URL);
+  static async getAllPhotos(limit = 10, page = 1) {
+    const response = await axios.get(BASE_PHOTOS_URL, {
+      params: {
+        _limit: limit,
+        _page: page,
+      },
+    });
     return response;
   }
   static async getPhotoById(id) {
