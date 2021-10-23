@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import LikeButton from "../UI/LikeButton/LikeButton";
 import NewsCard from "../UI/NewsCard/NewsCard";
 
 const BASE_URL = `https://jsonplaceholder.typicode.com/posts?_limit=10`;
 const News = () => {
   const [news, setNews] = useState([]);
+  const history = useHistory();
 
   async function fetchData() {
     await fetch(BASE_URL)
@@ -21,7 +23,10 @@ const News = () => {
           <>
             <div className="card" key={n.id}>
               <NewsCard title={n.title} text={n.body}></NewsCard>
-              <LikeButton></LikeButton>
+              <LikeButton />
+              <button onClick={() => history.push(`/news/${n.id}`)}>
+                See more
+              </button>
             </div>
           </>
         );

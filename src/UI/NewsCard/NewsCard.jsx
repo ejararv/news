@@ -8,6 +8,7 @@ const NewsCard = (props) => {
         <h4 className={classes.title}>{props.title}</h4>
         <h4 className={classes.body}>{props.text}</h4>
       </div>
+      <div className={classes.card_footer}></div>
     </div>
   );
 };
