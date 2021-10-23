@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import LikeButton from "../UI/LikeButton/LikeButton";
+import NewsCard from "../UI/NewsCard/NewsCard";
 
-const BASE_URL = `https://jsonplaceholder.typicode.com/posts`;
+const BASE_URL = `https://jsonplaceholder.typicode.com/posts?_limit=10`;
 const News = () => {
   const [news, setNews] = useState([]);
 
@@ -18,7 +20,8 @@ const News = () => {
         return (
           <>
             <div className="card" key={n.id}>
-              <News title={n.title} text={n.body}></News>
+              <NewsCard title={n.title} text={n.body}></NewsCard>
+              <LikeButton></LikeButton>
             </div>
           </>
         );

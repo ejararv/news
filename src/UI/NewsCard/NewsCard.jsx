@@ -1,12 +1,12 @@
 import React from "react";
-import clases from "./NewsCard.module.css";
+import classes from "./NewsCard.module.css";
 
 const NewsCard = (props) => {
   return (
-    <div className={clases.card}>
-      <div>
-        <title>{props.title}</title>
-        <h4>{props.text}</h4>
+    <div className={classes.container}>
+      <div className={classes.card}>
+        <h4 className={classes.title}>{props.title}</h4>
+        <h4 className={classes.body}>{props.text}</h4>
       </div>
     </div>
   );

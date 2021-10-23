@@ -1,22 +1,12 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
-import clases from "./AlbumCard.module.css";
+import classes from "./AlbumCard.module.css";
 
 const AlbumCard = (props) => {
   return (
-    <Card className={clases.card}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="Contemplative Reptile"
-          className="card_media"
-          image={props.imgUrl}
-          title="Contemplative Reptile"
-        />
-      </CardActionArea>
-    </Card>
+    <div className={classes.card}>
+      <img src={props.imgUrl} className={classes.card_media} alt="test" />
+      <h4>text</h4>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AlbumCard from "../UI/AlbumCard/AlbumCard";
-const BASE_URL = `https://jsonplaceholder.typicode.com/photos?_limit=`;
+import "./../styles/styles.css";
+const BASE_URL = `https://jsonplaceholder.typicode.com/photos?_limit=10`;
 const Albums = () => {
   const [albums, setAlbums] = useState([]);
 
@@ -13,7 +14,7 @@ const Albums = () => {
     fetchData();
   }, []);
   return (
-    <div>
+    <div className="container_albums">
       {albums.map((album) => {
         return (
           <>

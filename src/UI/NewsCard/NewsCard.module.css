@@ -1,0 +1,22 @@
+.container {
+  display: inline-table;
+}
+.card {
+  display: flex;
+  align-items: flex-start;
+  padding: 32px;
+  width: 535px;
+  height: 232px;
+  background: #ffffff;
+  box-shadow: 0px 8px 32px rgba(59, 75, 165, 0.08);
+  border-radius: 16px;
+}
+.title {
+  font-size: 20px;
+  color: #001524;
+}
+.body {
+  color: #a0abb3;
+}
+.card_footer {
+}
