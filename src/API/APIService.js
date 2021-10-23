@@ -22,4 +22,10 @@ export default class APIService {
 
     return response;
   }
+
+  static async getCommentsByNewsId(id) {
+    const response = await axios.get(BASE_NEWS_URL + "/" + id + "/comments");
+
+    return response;
+  }
 }
