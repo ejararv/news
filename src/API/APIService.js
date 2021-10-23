@@ -1,20 +1,25 @@
-const BASE_URL = `https://jsonplaceholder.typicode.com/photos?_limit=10`;
+import axios from "axios";
+const BASE_NEWS_URL = "https://jsonplaceholder.typicode.com/posts";
+const BASE_PHOTOS_URL = "https://jsonplaceholder.typicode.com/photos";
 
 export default class APIService {
-  static async getAll(limit = 20) {
-    const response = await fetch(BASE_URL, {
-      params: {
-        _limit: limit,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => data);
+  static async getAllPhotos() {
+    const response = await axios.get(BASE_PHOTOS_URL);
     return response;
   }
-  static async getById(id) {
-    const response = await fetch(BASE_URL + id)
-      .then((res) => res.json())
-      .then((data) => data);
+  static async getPhotoById(id) {
+    const response = await axios.get(BASE_PHOTOS_URL + "/" + id);
+
+    return response;
+  }
+
+  static async getAllNews() {
+    const response = await axios.get(BASE_NEWS_URL);
+    return response;
+  }
+  static async getNewsById(id) {
+    const response = await axios.get(BASE_NEWS_URL + "/" + id);
+
     return response;
   }
 }
