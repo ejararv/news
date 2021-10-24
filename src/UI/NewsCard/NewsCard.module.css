@@ -1,9 +1,12 @@
 .container {
-  display: inline-table;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 535;
+  height: 232;
+  padding: 32px;
 }
 .card {
-  display: flex;
-  align-items: flex-start;
   padding: 32px;
   width: 535px;
   height: 232px;

@@ -15,9 +15,9 @@ const LikeButton = () => {
   };
 
   return (
-    <div>
-      <button onClick={setLike}> click</button> <h1>{likes.like}</h1>
-    </div>
+    <>
+      <div onClick={setLike}>👍{likes.like}</div>
+    </>
   );
 };
 

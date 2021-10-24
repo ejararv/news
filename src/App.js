@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
 import Albums from "./components/Albums";
-import News from "./components/News";
+
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./UI/Navbar/Navbar";
 import DetailPage from "./pages/DetailPage";
+import NewsPage from "./pages/NewsPage";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/news">
-          <News />
+          <NewsPage />
         </Route>
         <Route path="/albums">
           <Albums />

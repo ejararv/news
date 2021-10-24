@@ -1,10 +1,10 @@
 import axios from "axios";
 const BASE_NEWS_URL = "https://jsonplaceholder.typicode.com/posts";
-const BASE_PHOTOS_URL = "https://jsonplaceholder.typicode.com/photos";
+const BASE_ALBUMS_URL = "https://jsonplaceholder.typicode.com/albums";
 
 export default class APIService {
-  static async getAllPhotos(limit = 10, page = 1) {
-    const response = await axios.get(BASE_PHOTOS_URL, {
+  static async getAllAlbums(limit, page) {
+    const response = await axios.get(BASE_ALBUMS_URL, {
       params: {
         _limit: limit,
         _page: page,
@@ -12,10 +12,16 @@ export default class APIService {
     });
     return response;
   }
-  static async getPhotoById(id) {
-    const response = await axios.get(BASE_PHOTOS_URL + "/" + id);
-
+  static async getAlbumById(id) {
+    const response = await axios.get(BASE_ALBUMS_URL + "/" + id);
     return response;
+  }
+
+  static async getFirstPhotoOfAlbum(id) {
+    const response = await axios.get(
+      `https://jsonplaceholder.typicode.com/albums/${id}/photos?_limit=1`
+    );
+    return response.data[0].thumbnailUrl;
   }
 
   static async getAllNews() {
@@ -24,13 +30,11 @@ export default class APIService {
   }
   static async getNewsById(id) {
     const response = await axios.get(BASE_NEWS_URL + "/" + id);
-
     return response;
   }
 
   static async getCommentsByNewsId(id) {
     const response = await axios.get(BASE_NEWS_URL + "/" + id + "/comments");
-
     return response;
   }
 }
